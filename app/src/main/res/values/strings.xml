@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Library</string>
+    <string name="welcome">Вітаємо!</string>
+    <string name="phone">Телефон</string>
+    <string name="enter_phone">Введіть номер телефону</string>
+    <string name="password">Пароль</string>
+    <string name="enter_password">Введіть пароль</string>
+    <string name="login">Увійти</string>
+    <string name="register">Зареєструватися</string>
+    <string name="input_data">Введіть дані</string>
+    <string name="login_failed">Невірний пароль або номер</string>
 </resources>

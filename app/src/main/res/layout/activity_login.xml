@@ -1,16 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.other.LoginActivity">
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+    tools:context=".ui.other.login.LoginActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ЛОГІН"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_margin="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/labelLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome"
+            android:textAppearance="@style/textHead" />
+
+        <TextView
+            android:id="@+id/phoneLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/phone"
+            android:textAppearance="@style/textGeneral"
+            android:layout_marginTop="24dp"/>
+
+        <EditText
+            android:id="@+id/phoneText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:background="@drawable/edit_text_background"
+            android:textAppearance="@style/textGeneral"
+            android:layout_marginTop="8dp"
+            android:hint="@string/enter_phone"
+            android:paddingHorizontal="24dp"
+            android:inputType="phone"
+            android:autofillHints="username"/>
+
+        <TextView
+            android:id="@+id/passwordLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/password"
+            android:textAppearance="@style/textGeneral"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/passwordText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:background="@drawable/edit_text_background"
+            android:textAppearance="@style/textGeneral"
+            android:layout_marginTop="8dp"
+            android:hint="@string/enter_password"
+            android:paddingHorizontal="24dp"
+            android:inputType="textPassword"
+            android:autofillHints="password"
+
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/loginButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_main_background"
+            android:minHeight="48dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/login"
+            android:textAppearance="@style/textWhite"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/registerButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_secondary_background"
+            android:minHeight="48dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/register"
+            android:textAppearance="@style/textOrange"/>
+
+    </LinearLayout>
+</ScrollView>
