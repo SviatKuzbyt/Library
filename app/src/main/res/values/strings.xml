@@ -9,4 +9,21 @@
     <string name="register">Зареєструватися</string>
     <string name="input_data">Введіть дані</string>
     <string name="login_failed">Невірний пароль або номер</string>
+    <string name="data">Введіть дані</string>
+    <string name="register_label">Реєстрація</string>
+    <string name="cancel">Скасувати</string>
+    <string name="create_account">Створити акаунт</string>
+    <string name="name">Ім\'я та прізвище</string>
+    <string name="address">Адреса доставки</string>
+    <string name="select_plan">Оберіть план</string>
+    <string name="already_reg">Такий номер вже зареєстровано</string>
+    <string name="error">Помилка. Перепрошуємо за незучності</string>
+    <string name="successfulReg">Зареєстровано успішно!</string>
+    
+    
+    <string-array name="plan_array">
+        <item>7 днів - 49 грн/міс</item>
+        <item>14 днів - 79 грн/міс</item>
+        <item>Місяць - 149 грн/міс</item>
+    </string-array>
 </resources>

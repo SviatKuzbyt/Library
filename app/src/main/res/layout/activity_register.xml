@@ -4,6 +4,158 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.other.register.RegisterActivity">
+    tools:context=".ui.other.register.RegisterActivity"
+    android:padding="16dp">
 
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/register_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textAppearance="@style/textHead"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cancelButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:minHeight="48dp"
+        android:background="@drawable/button_secondary_background"
+        android:textAppearance="@style/textOrange"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/createAccountButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/create_account"
+        app:layout_constraintBottom_toTopOf="@+id/cancelButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/button_main_background"
+        android:textAppearance="@style/textWhite"/>
+
+    <ScrollView
+        android:id="@+id/fields"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/createAccountButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/phoneLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/phone"
+                android:textAppearance="@style/textGeneral"
+                android:layout_marginTop="8dp"/>
+            <EditText
+                android:id="@+id/phoneTextReg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:background="@drawable/edit_text_background"
+                android:textAppearance="@style/textGeneral"
+                android:layout_marginTop="8dp"
+                android:hint="@string/data"
+                android:paddingHorizontal="24dp"
+                android:inputType="phone"
+                android:autofillHints="username"/>
+
+            <TextView
+                android:id="@+id/passwordLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/password"
+                android:textAppearance="@style/textGeneral"
+                android:layout_marginTop="16dp"/>
+            <EditText
+                android:id="@+id/passwordTextReg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:background="@drawable/edit_text_background"
+                android:textAppearance="@style/textGeneral"
+                android:layout_marginTop="8dp"
+                android:hint="@string/data"
+                android:paddingHorizontal="24dp"
+                android:inputType="textPassword"
+                android:autofillHints="password"
+                />
+
+            <TextView
+                android:id="@+id/nameLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:textAppearance="@style/textGeneral"
+                android:layout_marginTop="24dp"/>
+            <EditText
+                android:id="@+id/nameText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:background="@drawable/edit_text_background"
+                android:textAppearance="@style/textGeneral"
+                android:layout_marginTop="8dp"
+                android:hint="@string/data"
+                android:paddingHorizontal="24dp"
+                android:inputType="textCapSentences"
+                android:importantForAutofill="no" />
+
+            <TextView
+                android:id="@+id/addressLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/address"
+                android:textAppearance="@style/textGeneral"
+                android:layout_marginTop="16dp"/>
+            <EditText
+                android:id="@+id/addressText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:background="@drawable/edit_text_background"
+                android:textAppearance="@style/textGeneral"
+                android:layout_marginTop="8dp"
+                android:hint="@string/data"
+                android:paddingHorizontal="24dp"
+                android:inputType="textCapSentences"
+                android:importantForAutofill="no"/>
+
+            <TextView
+                android:id="@+id/planLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/select_plan"
+                android:textAppearance="@style/textGeneral"
+                android:layout_marginTop="24dp"/>
+
+            <Spinner
+                android:id="@+id/planSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:background="@drawable/spinner_background"
+                android:entries="@array/plan_array"
+                android:paddingHorizontal="20dp"
+                android:popupBackground="@drawable/popup_spinner_background"
+                />
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
