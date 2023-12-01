@@ -10,6 +10,24 @@ class CatalogRepository(private val context: Context) {
     private val dao = DatabaseManager.getDao(context)
     private val recommendationSize = 4
 
+    private val categoryList = listOf(
+        "Роман",
+        "Фантастика",
+        "Сатира",
+        "Дистопія",
+        "Детектив",
+        "Кримінал",
+        "Пригоди",
+        "Філософська казка",
+        "Література для дітей",
+        "Наукова фантастика",
+        "Епічна фантастика",
+        "Фентезі",
+        "Антиутопія",
+        "Трагедія",
+        "Романс")
+
+    fun getCategoryList() = categoryList
     fun getRecommendation(): List<BookRecycler>{
         val booksId = getRandomNonRepeatingNumbers()
         val listWithoutImg = booksId.map {

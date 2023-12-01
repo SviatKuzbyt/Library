@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sviatkuzbyt.library.databinding.FragmentCatalogBinding
 import com.sviatkuzbyt.library.ui.elements.recycleradapters.BookAdapter
+import com.sviatkuzbyt.library.ui.elements.recycleradapters.CategoryAdapter
 
 class CatalogFragment : Fragment() {
 
@@ -29,9 +30,14 @@ class CatalogFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.recommendationRecycler.layoutManager = LinearLayoutManager(requireContext())
+        binding.categoriesRecycler.layoutManager = LinearLayoutManager(requireContext())
 
         viewModel.recommendationList.observe(viewLifecycleOwner){
             binding.recommendationRecycler.adapter = BookAdapter(it)
+        }
+
+        viewModel.categoryList.observe(viewLifecycleOwner){
+            binding.categoriesRecycler.adapter = CategoryAdapter(it)
         }
 
     }

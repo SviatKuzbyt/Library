@@ -13,8 +13,10 @@ import kotlinx.coroutines.withContext
 class CatalogViewModel(application: Application): AndroidViewModel(application) {
     private val repository = CatalogRepository(application)
     val recommendationList = MutableLiveData<List<BookRecycler>>()
+    val categoryList = MutableLiveData<List<String>>()
 
     init {
+        categoryList.postValue(repository.getCategoryList())
         loadRecommendation()
     }
     private fun loadRecommendation() = viewModelScope.launch(Dispatchers.IO){

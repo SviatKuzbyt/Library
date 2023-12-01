@@ -20,39 +20,39 @@
         android:layout_marginBottom="16dp"
         />
 
-    <androidx.recyclerview.widget.RecyclerView
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recommendationRecycler"/>
+        android:id="@+id/test">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-<!--    <androidx.core.widget.NestedScrollView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent">-->
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical">-->
-
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:id="@+id/recommendationLabel"-->
-<!--                android:text="@string/recommendation"-->
-<!--                android:layout_marginTop="8dp"-->
-<!--                android:textAppearance="@style/textBold"/>-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/recommendation"
+                android:layout_marginTop="8dp"
+                android:textAppearance="@style/textBold"
+                android:layout_marginBottom="16dp"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/recommendationRecycler"/>
 
 
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:id="@+id/categoriesLabel"-->
-<!--                android:text="@string/categories"-->
-<!--                android:layout_marginTop="8dp"-->
-<!--                android:textAppearance="@style/textBold"/>-->
-<!--            <androidx.recyclerview.widget.RecyclerView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:id="@+id/categoriesRecycler"/>-->
-<!--        </LinearLayout>-->
-<!--    </androidx.core.widget.NestedScrollView>-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categories"
+                android:layout_marginTop="8dp"
+                android:textAppearance="@style/textBold"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/categoriesRecycler"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>
