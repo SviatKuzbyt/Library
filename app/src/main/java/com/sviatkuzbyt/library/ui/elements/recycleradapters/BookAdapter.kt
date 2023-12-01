@@ -1,5 +1,6 @@
 package com.sviatkuzbyt.library.ui.elements.recycleradapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +11,7 @@ import com.sviatkuzbyt.library.R
 import com.sviatkuzbyt.library.data.other.BookRecycler
 
 
-class BookAdapter(private val dataSet: List<BookRecycler>) :
+open class BookAdapter(protected var dataSet: List<BookRecycler>) :
     RecyclerView.Adapter<BookAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -35,6 +36,10 @@ class BookAdapter(private val dataSet: List<BookRecycler>) :
             viewHolder.bookImage.setImageBitmap(image)
         else
             viewHolder.bookImage.setImageResource(R.drawable.no_image)
+
+        viewHolder.itemView.setOnClickListener {
+            Log.v("appLog", "$position - ${dataSet[position].name}")
+        }
     }
 
     override fun getItemCount() = dataSet.size

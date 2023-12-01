@@ -11,9 +11,6 @@ import com.sviatkuzbyt.library.ui.elements.recycleradapters.BookAdapter
 class CategoryActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCategoryBinding
 
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCategoryBinding.inflate(layoutInflater)

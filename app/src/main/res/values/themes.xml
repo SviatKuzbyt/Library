@@ -13,5 +13,6 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowActivityTransitions">true</item>
     </style>
 </resources>

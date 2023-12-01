@@ -1,5 +1,7 @@
 package com.sviatkuzbyt.library.ui.main.catalog
 
+import android.app.ActivityOptions
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sviatkuzbyt.library.databinding.FragmentCatalogBinding
 import com.sviatkuzbyt.library.ui.elements.recycleradapters.BookAdapter
 import com.sviatkuzbyt.library.ui.elements.recycleradapters.CategoryAdapter
+import com.sviatkuzbyt.library.ui.main.catalog.search.SearchActivity
 
 class CatalogFragment : Fragment() {
 
@@ -37,7 +40,14 @@ class CatalogFragment : Fragment() {
         }
 
         viewModel.categoryList.observe(viewLifecycleOwner){
-            binding.categoriesRecycler.adapter = CategoryAdapter(it, requireActivity())
+            binding.categoriesRecycler.adapter = CategoryAdapter(it, requireContext())
+        }
+
+        binding.search.setOnClickListener{
+            startActivity(
+                Intent(requireContext(), SearchActivity::class.java),
+                ActivityOptions.makeSceneTransitionAnimation(requireActivity()).toBundle()
+            )
         }
 
     }

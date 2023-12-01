@@ -10,4 +10,10 @@
     <style name="MainBottomNavigation">
         <item name="fontFamily">@font/inter</item>
     </style>
+
+    <style name="SearchTheme" parent="Theme.Library">
+        <item name="android:statusBarColor">?attr/colorSecondaryVariant</item>
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
 </resources>
