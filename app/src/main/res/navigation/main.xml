@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    app:startDestination="@id/catalogFragment">
+
+    <fragment
+        android:id="@+id/catalogFragment"
+        android:name="com.sviatkuzbyt.library.ui.main.catalog.CatalogFragment"
+        android:label="fragment_catalog"
+        tools:layout="@layout/fragment_catalog" />
+    <fragment
+        android:id="@+id/readingFragment"
+        android:name="com.sviatkuzbyt.library.ui.main.reading.ReadingFragment"
+        android:label="fragment_reading"
+        tools:layout="@layout/fragment_reading" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.sviatkuzbyt.library.ui.main.setting.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>

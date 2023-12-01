@@ -17,7 +17,7 @@ object DatabaseManager {
                     taskDataBase = Room.databaseBuilder(
                         context.applicationContext,
                         LibraryRoom::class.java, "library_database"
-                    ).build()
+                    ).createFromAsset("library.db").build()
                 }
             }
         }

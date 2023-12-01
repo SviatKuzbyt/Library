@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.sviatkuzbyt.library.data.database.entity.User
+import com.sviatkuzbyt.library.data.other.BookRecyclerWithoutImg
 
 @Dao
 interface LibraryDao {
@@ -18,4 +19,10 @@ interface LibraryDao {
 
     @Insert
     fun addUser(user: User)
+
+    @Query("SELECT COUNT(*) FROM Book")
+    fun getBooksCount(): Long
+
+    @Query("SELECT id, imageId, name, author FROM Book WHERE id=:id LIMIT 1")
+    fun getRecyclerBook(id: Long): BookRecyclerWithoutImg
 }
