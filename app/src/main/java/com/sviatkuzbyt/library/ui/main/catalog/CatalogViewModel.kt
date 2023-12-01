@@ -16,13 +16,13 @@ class CatalogViewModel(application: Application): AndroidViewModel(application) 
     val categoryList = MutableLiveData<List<String>>()
 
     init {
-        categoryList.postValue(repository.getCategoryList())
-        loadRecommendation()
+        loadData()
     }
-    private fun loadRecommendation() = viewModelScope.launch(Dispatchers.IO){
+    private fun loadData() = viewModelScope.launch(Dispatchers.IO){
         val list = repository.getRecommendation()
         withContext(Dispatchers.Main){
             recommendationList.postValue(list)
+            categoryList.postValue(repository.getCategoryList())
         }
     }
 }

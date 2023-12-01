@@ -37,7 +37,7 @@ class CatalogFragment : Fragment() {
         }
 
         viewModel.categoryList.observe(viewLifecycleOwner){
-            binding.categoriesRecycler.adapter = CategoryAdapter(it)
+            binding.categoriesRecycler.adapter = CategoryAdapter(it, requireActivity())
         }
 
     }

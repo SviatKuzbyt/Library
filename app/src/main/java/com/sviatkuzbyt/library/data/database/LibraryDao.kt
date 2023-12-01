@@ -25,4 +25,7 @@ interface LibraryDao {
 
     @Query("SELECT id, imageId, name, author FROM Book WHERE id=:id LIMIT 1")
     fun getRecyclerBook(id: Long): BookRecyclerWithoutImg
+
+    @Query("SELECT id, imageId, name, author FROM Book WHERE categories LIKE :category")
+    fun getBooksByCategory(category: String): List<BookRecyclerWithoutImg>
 }

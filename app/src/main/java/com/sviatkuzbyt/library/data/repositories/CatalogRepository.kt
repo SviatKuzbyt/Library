@@ -28,6 +28,7 @@ class CatalogRepository(private val context: Context) {
         "Романс")
 
     fun getCategoryList() = categoryList
+
     fun getRecommendation(): List<BookRecycler>{
         val booksId = getRandomNonRepeatingNumbers()
         val listWithoutImg = booksId.map {
