@@ -5,6 +5,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
+import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.first
 
@@ -12,9 +13,9 @@ import kotlinx.coroutines.flow.map
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "currentUser")
 class CurrentUserManager(private val context: Context){
-    private val key = intPreferencesKey("id")
+    private val key = longPreferencesKey("id")
 
-    suspend fun changeUser(id: Int){
+    suspend fun changeUser(id: Long){
         context.dataStore.edit {
             it[key] = id
         }
@@ -28,7 +29,7 @@ class CurrentUserManager(private val context: Context){
     }
 
     companion object{
-        const val NO_LOGIN = -1
+        const val NO_LOGIN: Long = -1
         private var currentUser = NO_LOGIN
         fun getUser() = currentUser
     }

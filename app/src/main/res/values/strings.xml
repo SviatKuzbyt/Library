@@ -42,4 +42,11 @@
     <string name="kind">Жанр</string>
     <string name="pages">Сторінки</string>
     <string name="about_book">Про книгу</string>
+    <string name="confirm">Підтвердити</string>
+    <string name="book">Книга</string>
+    <string name="customer">Замовник</string>
+    <string name="term">Термін щоб прочитати</string>
+    <string name="order_book">Створення замовлення</string>
+    <string name="order_done">Замовлення створено</string>
+    <string name="order_detail">Деталі надійдуть на SMS повідомлення</string>
 </resources>

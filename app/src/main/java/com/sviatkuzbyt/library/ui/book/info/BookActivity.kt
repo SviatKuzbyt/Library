@@ -49,7 +49,11 @@ class BookActivity : AppCompatActivity() {
         binding.bookToolbar.setNavigationOnClickListener { finishAfterTransition() }
 
         binding.orderButton.setOnClickListener {
-            startActivity(Intent(this, MakeOrderActivity::class.java))
+            val intent = Intent(this, MakeOrderActivity::class.java).apply {
+                putExtra("id", viewModel.value.getId())
+                putExtra("name", viewModel.value.label.value)
+            }
+            startActivity(intent)
         }
     }
 

@@ -7,7 +7,7 @@ import com.sviatkuzbyt.library.data.other.CurrentUserManager
 class LoginRepository(private val context: Context) {
     private val dao = DatabaseManager.getDao(context)
 
-    suspend fun login(phone: String, password: String): Int{
+    suspend fun login(phone: String, password: String): Long{
         val id = dao.getUserId(phone, password)
 
         if(id != null){

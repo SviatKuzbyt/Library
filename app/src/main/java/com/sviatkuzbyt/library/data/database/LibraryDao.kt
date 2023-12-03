@@ -6,17 +6,21 @@ import androidx.room.Query
 import com.sviatkuzbyt.library.data.database.entity.Book
 import com.sviatkuzbyt.library.data.database.entity.User
 import com.sviatkuzbyt.library.data.other.BookRecyclerWithoutImg
+import com.sviatkuzbyt.library.data.other.UserRentData
 
 @Dao
 interface LibraryDao {
     @Query("SELECT id FROM User WHERE number=:number AND password=:password")
-    fun getUserId(number: String, password: String): Int?
+    fun getUserId(number: String, password: String): Long?
 
     @Query("SELECT 1 FROM User WHERE number=:number")
     fun checkNumber(number: String): Int?
 
     @Query("SELECT * FROM User")
     fun getAll(): List<User>?
+
+    @Query("SELECT name, address, `plan` FROM User WHERE id=:id")
+    fun getUserRentData(id: Long): UserRentData?
 
     @Insert
     fun addUser(user: User)
