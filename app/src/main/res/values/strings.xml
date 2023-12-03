@@ -23,13 +23,11 @@
     <string name="reading">Читаю</string>
     <string name="settings">Налаштування</string>
 
-
     <string-array name="plan_array">
         <item>7 днів - 49 грн/міс</item>
         <item>14 днів - 79 грн/міс</item>
         <item>Місяць - 149 грн/міс</item>
     </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search">Пошук</string>
     <string name="recommendation">Рекомендуємо</string>
@@ -49,4 +47,5 @@
     <string name="order_book">Створення замовлення</string>
     <string name="order_done">Замовлення створено</string>
     <string name="order_detail">Деталі надійдуть на SMS повідомлення</string>
+    <string name="already_rent">Ви вже орендували цю книгу</string>
 </resources>

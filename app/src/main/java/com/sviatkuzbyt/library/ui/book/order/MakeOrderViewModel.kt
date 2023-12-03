@@ -1,6 +1,8 @@
 package com.sviatkuzbyt.library.ui.book.order
 
 import android.app.Application
+import android.database.sqlite.SQLiteConstraintException
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
@@ -13,10 +15,15 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MakeOrderViewModel(id: Long, bookName: String, application: Application): AndroidViewModel(application) {
-    private val repository = MakeOrderRepository(application, bookName)
+sealed class RentBookResult{
+    data object Successful: RentBookResult()
+    data object Error: RentBookResult()
+    data object AlreadyRent: RentBookResult()
+}
+class MakeOrderViewModel(bookId: Long, bookName: String, application: Application): AndroidViewModel(application) {
+    private val repository = MakeOrderRepository(application, bookName, bookId)
     val dataList = MutableLiveData<List<LabelData>>()
-    val error = MutableLiveData<String>()
+    val message = MutableLiveData<RentBookResult>()
 
     init { loadData() }
 
@@ -27,7 +34,19 @@ class MakeOrderViewModel(id: Long, bookName: String, application: Application): 
                 dataList.postValue(data)
             }
         } catch (e: Exception){
-            error.postValue(e.message)
+            message.postValue(RentBookResult.Error)
+        }
+    }
+
+    fun makeOrder() = viewModelScope.launch(Dispatchers.IO){
+        try {
+            repository.makeOrder()
+            message.postValue(RentBookResult.Successful)
+        } catch (e: SQLiteConstraintException){
+            message.postValue(RentBookResult.AlreadyRent)
+        }
+        catch (e: Exception){
+            message.postValue(RentBookResult.Error)
         }
     }
 

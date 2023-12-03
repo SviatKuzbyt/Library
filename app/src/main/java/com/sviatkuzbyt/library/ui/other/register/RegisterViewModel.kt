@@ -34,6 +34,7 @@ class RegisterViewModel(application: Application): AndroidViewModel(application)
                     result.postValue(RegisterResult.AlreadyRegistered)
                 } catch (e: Exception){
                     result.postValue(RegisterResult.Error)
+                    Log.e("appLog", e.toString())
                 }
             }
         }

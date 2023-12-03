@@ -44,7 +44,7 @@ open class BookAdapter(protected var dataSet: List<BookRecycler>, private val ac
 
         viewHolder.itemView.setOnClickListener {
             val intent = Intent(activity, BookActivity::class.java)
-            intent.putExtra("id", dataSet[position].id)
+            intent.putExtra("id", dataSet[position].bookId)
             val options = ActivityOptions.makeSceneTransitionAnimation(activity, viewHolder.cardView, "bookImg")
             activity.startActivity(intent, options.toBundle())
         }

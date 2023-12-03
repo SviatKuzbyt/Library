@@ -4,14 +4,14 @@ import android.graphics.Bitmap
 import java.net.Inet4Address
 
 data class BookRecycler(
-    val id: Long,
+    val bookId: Long,
     val image: Bitmap?,
     val name: String,
     val author: String
 )
 
 data class BookRecyclerWithoutImg(
-    val id: Long,
+    val bookId: Long,
     val imageId: String,
     val name: String,
     val author: String

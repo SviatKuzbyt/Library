@@ -5,9 +5,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sviatkuzbyt.library.R
-import com.sviatkuzbyt.library.databinding.ActivityBookBinding
 import com.sviatkuzbyt.library.databinding.OrderLayoutBinding
-import com.sviatkuzbyt.library.ui.book.info.BookViewModel
 import com.sviatkuzbyt.library.ui.elements.makeShortToast
 import com.sviatkuzbyt.library.ui.elements.makeToast
 import com.sviatkuzbyt.library.ui.elements.recycleradapters.LabelDataAdapter
@@ -35,17 +33,25 @@ class MakeOrderActivity : AppCompatActivity() {
             binding.recyclerInfoOrder.adapter = LabelDataAdapter(it, this)
         }
 
-        viewModel.value.error.observe(this){
-            makeToast(it, this)
+        viewModel.value.message.observe(this){
+            when(it){
+                RentBookResult.AlreadyRent ->{
+                    makeShortToast(R.string.already_rent, this)
+                    finish()
+                }
+                RentBookResult.Error -> makeToast(R.string.error, this)
+                RentBookResult.Successful -> {
+                    makeShortToast(R.string.order_done, this)
+                    makeToast(R.string.order_detail, this)
+                    finish()
+                }
+            }
         }
 
         binding.buttonOrderConfirm.setOnClickListener {
-            makeShortToast(R.string.order_done, this)
-            makeToast(R.string.order_detail, this)
-            finish()
+            viewModel.value.makeOrder()
         }
 
         binding.buttonOrderCancel.setOnClickListener { finish() }
-
     }
 }
