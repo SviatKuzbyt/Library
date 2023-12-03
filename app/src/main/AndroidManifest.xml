@@ -14,11 +14,13 @@
         android:theme="@style/Theme.Library"
         tools:targetApi="31">
         <activity
+            android:name=".ui.book.info.BookActivity"
+            android:exported="false"/>
+        <activity
             android:name=".ui.main.catalog.search.SearchActivity"
-            android:windowSoftInputMode="stateVisible"
             android:exported="false"
             android:theme="@style/SearchTheme"
-            />
+            android:windowSoftInputMode="stateVisible" />
         <activity
             android:name=".ui.main.catalog.category.CategoryActivity"
             android:exported="false" />

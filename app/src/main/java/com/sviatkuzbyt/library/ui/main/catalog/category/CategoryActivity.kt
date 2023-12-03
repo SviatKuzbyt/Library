@@ -31,7 +31,7 @@ class CategoryActivity : AppCompatActivity() {
         binding.recyclerCategory.layoutManager = LinearLayoutManager(this)
 
         viewModel.list.observe(this){
-            binding.recyclerCategory.adapter = BookAdapter(it)
+            binding.recyclerCategory.adapter = BookAdapter(it, this)
         }
     }
 }

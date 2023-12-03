@@ -28,7 +28,7 @@ class SearchActivity : AppCompatActivity() {
         binding.backSearchButton.setOnClickListener { finishAfterTransition() }
 
         binding.recyclerSearch.layoutManager = LinearLayoutManager(this)
-        adapter = SearchAdapter()
+        adapter = SearchAdapter(this)
         binding.recyclerSearch.adapter = adapter
 
         viewModel.list.observe(this){

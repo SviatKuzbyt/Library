@@ -16,4 +16,9 @@
         <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
         <item name="android:windowExitAnimation">@android:anim/fade_out</item>
     </style>
+
+<!--    <style name="BookInfoTheme" parent="Theme.Library">-->
+<!--        <item name="android:windowSharedElementEnterTransition">@transition/change_bounds</item>-->
+<!--        <item name="android:windowSharedElementExitTransition">@transition/change_bounds</item>-->
+<!--    </style>-->
 </resources>

@@ -35,4 +35,11 @@
     <string name="recommendation">Рекомендуємо</string>
     <string name="categories">Категорії</string>
     <string name="enter_name">Введіть назву книги</string>
+    <string name="make_order">Замовити кнгу</string>
+    <string name="background">background</string>
+    <string name="book_image">Book image</string>
+    <string name="author">Автор</string>
+    <string name="kind">Жанр</string>
+    <string name="pages">Сторінки</string>
+    <string name="about_book">Про книгу</string>
 </resources>

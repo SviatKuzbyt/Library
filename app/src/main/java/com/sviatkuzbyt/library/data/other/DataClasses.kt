@@ -15,3 +15,8 @@ data class BookRecyclerWithoutImg(
     val name: String,
     val author: String
 )
+
+data class LabelData(
+    val label: Int,
+    val data: String
+)

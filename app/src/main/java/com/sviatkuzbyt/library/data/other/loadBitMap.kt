@@ -7,7 +7,7 @@ import java.io.IOException
 
 fun getBitmapFromAsset(context: Context, fileName: String): Bitmap? {
     return try {
-        context.assets.open(fileName).use { inputStream ->
+        context.assets.open("booksImg/$fileName").use { inputStream ->
             BitmapFactory.decodeStream(inputStream)
         }
     } catch (e: IOException) {

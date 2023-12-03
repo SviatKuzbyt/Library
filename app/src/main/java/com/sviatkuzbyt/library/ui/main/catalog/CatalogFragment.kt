@@ -36,7 +36,7 @@ class CatalogFragment : Fragment() {
         binding.categoriesRecycler.layoutManager = LinearLayoutManager(requireContext())
 
         viewModel.recommendationList.observe(viewLifecycleOwner){
-            binding.recommendationRecycler.adapter = BookAdapter(it)
+            binding.recommendationRecycler.adapter = BookAdapter(it, requireActivity())
         }
 
         viewModel.categoryList.observe(viewLifecycleOwner){

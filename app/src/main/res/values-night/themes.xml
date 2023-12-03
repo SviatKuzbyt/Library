@@ -15,5 +15,9 @@
         <item name="android:navigationBarColor">@color/dark_blue</item>
         <!-- Customize your theme here. -->
         <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowSharedElementEnterTransition">@transition/change_bounds</item>
+        <item name="android:windowSharedElementExitTransition">@transition/change_bounds</item>
+
+        <item name="rippleColor">@color/white_transparent</item>
     </style>
 </resources>

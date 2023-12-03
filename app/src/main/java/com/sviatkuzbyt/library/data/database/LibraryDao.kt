@@ -3,6 +3,7 @@ package com.sviatkuzbyt.library.data.database
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import com.sviatkuzbyt.library.data.database.entity.Book
 import com.sviatkuzbyt.library.data.database.entity.User
 import com.sviatkuzbyt.library.data.other.BookRecyclerWithoutImg
 
@@ -31,4 +32,7 @@ interface LibraryDao {
 
     @Query("SELECT id, imageId, name, author FROM Book WHERE name LIKE :name")
     fun getBooksByName(name: String): List<BookRecyclerWithoutImg>
+
+    @Query("SELECT * FROM Book WHERE id=:id LIMIT 1")
+    fun getBook(id: Long): Book
 }
