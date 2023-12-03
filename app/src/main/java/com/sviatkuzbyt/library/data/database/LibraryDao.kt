@@ -7,6 +7,7 @@ import com.sviatkuzbyt.library.data.database.entity.Book
 import com.sviatkuzbyt.library.data.database.entity.RentBook
 import com.sviatkuzbyt.library.data.database.entity.User
 import com.sviatkuzbyt.library.data.other.BookRecyclerWithoutImg
+import com.sviatkuzbyt.library.data.other.RentBookRecyclerWithoutImg
 import com.sviatkuzbyt.library.data.other.UserRentData
 
 @Dao
@@ -26,6 +27,9 @@ interface LibraryDao {
     @Insert
     fun addUser(user: User)
 
+    @Query("SELECT name FROM User WHERE userId=:id")
+    fun getUserName(id: Long): String
+
     @Query("SELECT COUNT(*) FROM Book")
     fun getBooksCount(): Long
 
@@ -43,4 +47,10 @@ interface LibraryDao {
 
     @Insert
     fun addRentBook(book: RentBook)
+
+    @Query("SELECT Book.bookId, Book.name, Book.imageId, Book.author, RentBook.rentEndDate, RentBook.rentId FROM Book INNER JOIN RentBook ON Book.bookId = RentBook.bookId WHERE RentBook.userId = :userId")
+    fun getRentBooks(userId: Long): List<RentBookRecyclerWithoutImg>
+
+    @Query("DELETE FROM rentbook WHERE rentId=:id")
+    fun deleteRent(id: Long)
 }

@@ -19,10 +19,8 @@ class SplashActivity : AppCompatActivity() {
         val user = CurrentUserManager(this)
 
         lifecycleScope.launch {
-            user.loadUser()
-
             withContext(Dispatchers.Main){
-                if(CurrentUserManager.getUser() != CurrentUserManager.NO_LOGIN)
+                if(CurrentUserManager.getUser(application) != CurrentUserManager.NO_LOGIN)
                     openActivity(MainActivity::class.java)
                 else
                     openActivity(LoginActivity::class.java)

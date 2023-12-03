@@ -22,7 +22,7 @@ class CurrentUserManager(private val context: Context){
         currentUser = id
     }
 
-    suspend fun loadUser(){
+    private suspend fun loadUser(){
         currentUser = context.dataStore.data.map {
             it[key] ?: NO_LOGIN
         }.first()
@@ -31,6 +31,9 @@ class CurrentUserManager(private val context: Context){
     companion object{
         const val NO_LOGIN: Long = -1
         private var currentUser = NO_LOGIN
-        fun getUser() = currentUser
+        suspend fun getUser(context: Context): Long{
+            if(currentUser == NO_LOGIN) CurrentUserManager(context).loadUser()
+            return currentUser
+        }
     }
 }

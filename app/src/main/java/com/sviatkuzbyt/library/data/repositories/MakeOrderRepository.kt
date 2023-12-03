@@ -9,12 +9,12 @@ import com.sviatkuzbyt.library.data.other.LabelData
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-class MakeOrderRepository(context: Context, private val bookName: String, private val bookId: Long) {
+class MakeOrderRepository(private val context: Context, private val bookName: String, private val bookId: Long) {
     private val dao = DatabaseManager.getDao(context)
     private var dayRent: Long = 7
 
-    fun getOrderData(): List<LabelData>{
-        val userData = dao.getUserRentData(CurrentUserManager.getUser()) ?: throw Exception()
+    suspend fun getOrderData(): List<LabelData>{
+        val userData = dao.getUserRentData(CurrentUserManager.getUser(context)) ?: throw Exception()
         dayRent = when(userData.plan){
             0 -> 7
             1 -> 14
@@ -28,8 +28,8 @@ class MakeOrderRepository(context: Context, private val bookName: String, privat
         )
     }
 
-    fun makeOrder(){
-        val rentBook = RentBook(CurrentUserManager.getUser(), bookId, createDataRent())
+    suspend fun makeOrder(){
+        val rentBook = RentBook(0, CurrentUserManager.getUser(context), bookId, createDataRent())
         dao.addRentBook(rentBook)
     }
 

@@ -27,3 +27,21 @@ data class UserRentData(
     val address: String,
     val plan: Int
 )
+
+data class RentBookRecycler(
+    val bookId: Long,
+    val image: Bitmap?,
+    val name: String,
+    val author: String,
+    val rentDate: String,
+    val rentId: Long
+)
+
+data class RentBookRecyclerWithoutImg(
+    val bookId: Long,
+    val name: String,
+    val imageId: String,
+    val author: String,
+    val rentEndDate: String,
+    val rentId: Long
+)

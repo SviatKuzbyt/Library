@@ -2,9 +2,9 @@ package com.sviatkuzbyt.library.data.database.entity
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
+import androidx.room.PrimaryKey
 
 @Entity(
-    primaryKeys = ["userId", "bookId"],
     foreignKeys = [
         ForeignKey(
             entity = User::class,
@@ -21,6 +21,7 @@ import androidx.room.ForeignKey
     ]
 )
 data class RentBook(
+    @PrimaryKey(autoGenerate = true) val rentId: Long,
     val userId: Long,
     val bookId: Long,
     val rentEndDate: String
