@@ -22,19 +22,25 @@ class BookViewModel(private val id: Long, private val application: Application):
     val image = MutableLiveData<Bitmap>()
     val infoList = MutableLiveData<List<LabelData>>()
     val description = MutableLiveData<String>()
+    val error = MutableLiveData<String>()
 
     init { loadData() }
 
     private fun loadData() = viewModelScope.launch(Dispatchers.IO){
-        val repository = BookInfoRepository(application)
-        repository.loadBook(id)
+        try {
+            val repository = BookInfoRepository(application)
+            repository.loadBook(id)
 
-        withContext(Dispatchers.Main){
-            label.postValue(repository.getLabel())
-            image.postValue(repository.getImage())
-            infoList.postValue(repository.getInfoList())
-            description.postValue(repository.getDescription())
+            withContext(Dispatchers.Main){
+                label.postValue(repository.getLabel())
+                image.postValue(repository.getImage())
+                infoList.postValue(repository.getInfoList())
+                description.postValue(repository.getDescription())
+            }
+        } catch (e: Exception){
+            error.postValue(e.message)
         }
+
     }
 
     fun getId() = id

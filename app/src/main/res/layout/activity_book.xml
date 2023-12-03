@@ -103,7 +103,7 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <androidx.appcompat.widget.Toolbar
+    <com.sviatkuzbyt.library.ui.elements.TransparentToolBar
         android:id="@+id/bookToolbar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

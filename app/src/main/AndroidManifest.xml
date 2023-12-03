@@ -14,8 +14,11 @@
         android:theme="@style/Theme.Library"
         tools:targetApi="31">
         <activity
+            android:name=".ui.book.order.MakeOrderActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.book.info.BookActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".ui.main.catalog.search.SearchActivity"
             android:exported="false"
