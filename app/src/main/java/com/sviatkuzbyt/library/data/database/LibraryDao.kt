@@ -3,11 +3,13 @@ package com.sviatkuzbyt.library.data.database
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import com.sviatkuzbyt.library.data.database.entity.Book
 import com.sviatkuzbyt.library.data.database.entity.RentBook
 import com.sviatkuzbyt.library.data.database.entity.User
 import com.sviatkuzbyt.library.data.other.BookRecyclerWithoutImg
 import com.sviatkuzbyt.library.data.other.RentBookRecyclerWithoutImg
+import com.sviatkuzbyt.library.data.other.UserData
 import com.sviatkuzbyt.library.data.other.UserRentData
 
 @Dao
@@ -24,11 +26,20 @@ interface LibraryDao {
     @Query("SELECT name, address, `plan` FROM User WHERE userId=:id")
     fun getUserRentData(id: Long): UserRentData?
 
+    @Query("SELECT name, number, address, `plan` FROM User WHERE userId=:id")
+    fun getUserData(id: Long): UserData
+
     @Insert
     fun addUser(user: User)
 
     @Query("SELECT name FROM User WHERE userId=:id")
     fun getUserName(id: Long): String
+
+    @Query("SELECT * FROM User WHERE userId=:id")
+    fun getUser(id: Long): User
+
+    @Update
+    fun updateUser(user: User)
 
     @Query("SELECT COUNT(*) FROM Book")
     fun getBooksCount(): Long

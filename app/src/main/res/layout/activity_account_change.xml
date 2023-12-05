@@ -11,7 +11,6 @@
         android:id="@+id/label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/register_label"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:textAppearance="@style/textHead"/>
@@ -29,17 +28,17 @@
         android:textAppearance="@style/textOrange"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/createAccountButton"
+        android:id="@+id/applyButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="48dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/create_account"
         app:layout_constraintBottom_toTopOf="@+id/cancelButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:background="@drawable/button_main_background"
-        android:textAppearance="@style/textWhite"/>
+        android:textAppearance="@style/textWhite"
+        android:stateListAnimator="@null"/>
 
     <ScrollView
         android:id="@+id/fields"
@@ -47,7 +46,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/createAccountButton"
+        app:layout_constraintBottom_toTopOf="@+id/applyButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/label">
@@ -65,7 +64,7 @@
                 android:textAppearance="@style/textGeneral"
                 android:layout_marginTop="8dp"/>
             <EditText
-                android:id="@+id/phoneTextReg"
+                android:id="@+id/phoneTextChange"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
@@ -85,7 +84,7 @@
                 android:textAppearance="@style/textGeneral"
                 android:layout_marginTop="16dp"/>
             <EditText
-                android:id="@+id/passwordTextReg"
+                android:id="@+id/passwordTextChange"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"

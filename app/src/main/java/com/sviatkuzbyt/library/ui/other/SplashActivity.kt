@@ -16,11 +16,11 @@ import kotlinx.coroutines.withContext
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val user = CurrentUserManager(this)
 
         lifecycleScope.launch {
+            val currentUser = CurrentUserManager.getUser(application)
             withContext(Dispatchers.Main){
-                if(CurrentUserManager.getUser(application) != CurrentUserManager.NO_LOGIN)
+                if(currentUser != CurrentUserManager.NO_LOGIN)
                     openActivity(MainActivity::class.java)
                 else
                     openActivity(LoginActivity::class.java)

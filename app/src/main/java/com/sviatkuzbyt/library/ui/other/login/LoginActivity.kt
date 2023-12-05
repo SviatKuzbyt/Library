@@ -4,28 +4,24 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
 import androidx.activity.viewModels
 import com.sviatkuzbyt.library.R
+import com.sviatkuzbyt.library.databinding.ActivityLoginBinding
 import com.sviatkuzbyt.library.ui.elements.makeToast
 import com.sviatkuzbyt.library.ui.main.MainActivity
 import com.sviatkuzbyt.library.ui.other.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
 
-    private val phoneText: EditText by lazy { findViewById(R.id.phoneTextReg) }
-    private val passwordText: EditText by lazy { findViewById(R.id.passwordTextReg) }
-    private val loginButton: Button by lazy { findViewById(R.id.loginButton) }
-    private val registerButton: Button by lazy { findViewById(R.id.registerButton) }
+    private lateinit var binding: ActivityLoginBinding
     private val viewModel: LoginViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        loginButton.setOnClickListener {
+        binding.loginButton.setOnClickListener {
             login()
         }
 
@@ -42,11 +38,11 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        registerButton.setOnClickListener {
+        binding.registerButton.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
-        passwordText.setOnEditorActionListener { _, actionId, _ ->
+        binding.passwordText.setOnEditorActionListener { _, actionId, _ ->
             return@setOnEditorActionListener when (actionId) {
                 EditorInfo.IME_ACTION_DONE -> {
                     login()
@@ -59,8 +55,8 @@ class LoginActivity : AppCompatActivity() {
 
     private fun login(){
         viewModel.login(
-            phoneText.text.toString(),
-            passwordText.text.toString()
+            binding.phoneText.text.toString(),
+            binding.passwordText.text.toString()
         )
     }
 }

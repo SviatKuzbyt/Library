@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.sviatkuzbyt.library.data.database.ChangeRentTable
 import com.sviatkuzbyt.library.data.database.DatabaseManager
 import com.sviatkuzbyt.library.databinding.FragmentReadingBinding
 import com.sviatkuzbyt.library.ui.elements.makeToast
@@ -32,7 +31,7 @@ class ReadingFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        if(DatabaseManager.changeRentTable == ChangeRentTable.Change)
+        if(DatabaseManager.changeRentTable == true)
             viewModel.loadList()
     }
 

@@ -28,7 +28,8 @@
         android:background="@drawable/button_main_background"
         android:layout_marginHorizontal="16dp"
         android:textAppearance="@style/textWhite"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:stateListAnimator="@null"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonOrderCancel"

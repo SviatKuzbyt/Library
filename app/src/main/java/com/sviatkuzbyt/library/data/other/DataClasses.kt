@@ -45,3 +45,10 @@ data class RentBookRecyclerWithoutImg(
     val rentEndDate: String,
     val rentId: Long
 )
+
+data class UserData(
+    val name: String,
+    val number: String,
+    val address: String,
+    val plan: Int
+)

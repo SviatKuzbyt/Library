@@ -3,19 +3,15 @@ package com.sviatkuzbyt.library.data.database
 import android.content.Context
 import androidx.room.Room
 
-sealed class ChangeRentTable{
-    data object Change: ChangeRentTable()
-    data object NoChange: ChangeRentTable()
-    data object NotRentList: ChangeRentTable()
-}
 
 object DatabaseManager {
     private var taskDataBase: LibraryRoom? = null
-    var changeRentTable: ChangeRentTable = ChangeRentTable.NotRentList
+    var changeRentTable: Boolean? = null
+    var changeAccountSetting: Boolean? = null
 
     fun setChangeRent(){
-        if(changeRentTable != ChangeRentTable.NotRentList)
-            changeRentTable = ChangeRentTable.Change
+        if(changeRentTable != null)
+            changeRentTable = true
     }
 
     fun getDao(context: Context): LibraryDao {

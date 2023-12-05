@@ -1,14 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.setting.SettingsFragment">
+    tools:context=".ui.main.setting.SettingsFragment"
+    android:id="@+id/settingsScroll">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/settings" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/account_data_label"
+            android:textAppearance="@style/textBold"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:paddingBottom="4dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/accountData"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/contorl"
+            android:textAppearance="@style/textBold"
+            android:layout_marginTop="24dp"
+            android:layout_marginHorizontal="16dp"/>
+
+        <TextView
+            android:id="@+id/changeAccountParam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="@string/change_account_settings"
+            android:theme="@style/textParam"/>
+
+        <TextView
+            android:id="@+id/logOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/exit"
+            android:theme="@style/textParam"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_label"
+            android:textAppearance="@style/textBold"
+            android:layout_marginTop="24dp"
+            android:layout_marginHorizontal="16dp"/>
+
+        <TextView
+            android:id="@+id/textAbout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_info"
+            android:textAppearance="@style/textGeneral"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="32dp"/>
+
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>

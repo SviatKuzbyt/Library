@@ -53,5 +53,14 @@
     <string name="rent_books">Орендовані книги</string>
     <string name="return_book">Повернення книги</string>
     <string name="return_application">Свторено заявку на повернення</string>
+    <string name="about_info">Додаток для взаємодії з локальною БД бібліотеки та виконання різних дій з нею. Розроблений Кузбитом Святославом для освітньої компоненти \"Основи програмної інженерії\" у грудні 2023 року\n\n<a href="https://github.com/SviatKuzbyt/Library">GitHub проєкта</a> \n<a href="https://fonts.google.com">Ікнонки та шрифти</a> \n<a href="https://www.flaticon.com/free-icons/library">Логотип програми</a></string>
+    <string name="about_label">Про додаток</string>
+    <string name="contorl">Управління</string>
+    <string name="account_data_label">Дані акаунта</string>
+    <string name="plan">Тарифний план</string>
+    <string name="change_account_settings">Змінити дані аккаунту</string>
+    <string name="exit">Вийти</string>
+    <string name="save">Зберегти</string>
+    <string name="data_update">Дані оновилися</string>
 
 </resources>

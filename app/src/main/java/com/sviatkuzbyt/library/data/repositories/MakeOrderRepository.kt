@@ -6,20 +6,17 @@ import com.sviatkuzbyt.library.data.database.DatabaseManager
 import com.sviatkuzbyt.library.data.database.entity.RentBook
 import com.sviatkuzbyt.library.data.other.CurrentUserManager
 import com.sviatkuzbyt.library.data.other.LabelData
+import com.sviatkuzbyt.library.data.other.getPlanFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 class MakeOrderRepository(private val context: Context, private val bookName: String, private val bookId: Long) {
     private val dao = DatabaseManager.getDao(context)
-    private var dayRent: Long = 7
+    private var dayRent = 7
 
     suspend fun getOrderData(): List<LabelData>{
         val userData = dao.getUserRentData(CurrentUserManager.getUser(context)) ?: throw Exception()
-        dayRent = when(userData.plan){
-            0 -> 7
-            1 -> 14
-            else -> 31
-        }
+        dayRent = getPlanFormat(userData.plan)
         return listOf(
             LabelData(R.string.book, bookName),
             LabelData(R.string.customer, userData.name),
@@ -36,7 +33,7 @@ class MakeOrderRepository(private val context: Context, private val bookName: St
 
     private fun createDataRent(): String{
         val today = LocalDate.now()
-        val futureDate = today.plusDays(dayRent)
+        val futureDate = today.plusDays(dayRent.toLong())
         val formatter = DateTimeFormatter.ofPattern("dd MMM")
         return futureDate.format(formatter)
     }

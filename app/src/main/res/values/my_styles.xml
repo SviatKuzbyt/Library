@@ -17,8 +17,14 @@
         <item name="android:windowExitAnimation">@android:anim/fade_out</item>
     </style>
 
-<!--    <style name="BookInfoTheme" parent="Theme.Library">-->
-<!--        <item name="android:windowSharedElementEnterTransition">@transition/change_bounds</item>-->
-<!--        <item name="android:windowSharedElementExitTransition">@transition/change_bounds</item>-->
-<!--    </style>-->
+    <style name="textParam">
+        <item name="android:fontFamily">@font/inter</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/setting_background</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">64dp</item>
+    </style>
 </resources>

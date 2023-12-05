@@ -27,7 +27,7 @@
             android:layout_marginTop="24dp"/>
 
         <EditText
-            android:id="@+id/phoneTextReg"
+            android:id="@+id/phoneText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="48dp"
@@ -48,7 +48,7 @@
             android:layout_marginTop="16dp"/>
 
         <EditText
-            android:id="@+id/passwordTextReg"
+            android:id="@+id/passwordText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="48dp"
@@ -69,7 +69,8 @@
             android:minHeight="48dp"
             android:layout_marginTop="32dp"
             android:text="@string/login"
-            android:textAppearance="@style/textWhite"/>
+            android:textAppearance="@style/textWhite"
+            android:stateListAnimator="@null"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/registerButton"

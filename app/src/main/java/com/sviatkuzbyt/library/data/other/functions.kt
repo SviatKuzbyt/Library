@@ -26,3 +26,9 @@ fun getLowBitmapFromAsset(context: Context, fileName: String): Bitmap? {
         null
     }
 }
+
+fun getPlanFormat(plan: Int) = when(plan){
+        0 -> 7
+        1 -> 14
+        else -> 31
+    }

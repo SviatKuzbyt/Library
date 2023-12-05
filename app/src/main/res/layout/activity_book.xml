@@ -19,6 +19,7 @@
         android:layout_marginHorizontal="16dp"
         android:background="@drawable/button_main_background"
         android:textAppearance="@style/textWhite"
+        android:stateListAnimator="@null"
         />
 
     <ImageView

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple android:color="?attr/rippleColor"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <layer-list>
+
+            <item>
+                <color android:color="?android:windowBackground"/>
+            </item>
+
+            <item
+                android:gravity="right"
+                android:drawable="@drawable/next_ic"
+                android:end="16dp"/>
+
+
+
+        </layer-list>
+    </item>
+</ripple>
