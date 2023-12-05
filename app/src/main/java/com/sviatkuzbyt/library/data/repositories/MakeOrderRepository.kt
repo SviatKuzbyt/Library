@@ -31,6 +31,7 @@ class MakeOrderRepository(private val context: Context, private val bookName: St
     suspend fun makeOrder(){
         val rentBook = RentBook(0, CurrentUserManager.getUser(context), bookId, createDataRent())
         dao.addRentBook(rentBook)
+        DatabaseManager.setChangeRent()
     }
 
     private fun createDataRent(): String{

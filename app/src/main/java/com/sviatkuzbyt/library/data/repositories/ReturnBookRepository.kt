@@ -23,5 +23,6 @@ class ReturnBookRepository(private val context: Context) {
 
     fun makeReturn(rentId: Long){
         dao.deleteRent(rentId)
+        DatabaseManager.setChangeRent()
     }
 }

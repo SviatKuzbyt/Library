@@ -69,5 +69,5 @@
         android:background="@drawable/button_secondary_background"
         android:textAppearance="@style/textOrange"
         android:text="@string/return_order"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="12dp"/>
 </LinearLayout>

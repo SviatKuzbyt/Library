@@ -17,8 +17,9 @@ import com.sviatkuzbyt.library.ui.book.info.BookActivity
 import com.sviatkuzbyt.library.ui.main.reading.returnbook.ReturnBookActivity
 
 
-open class RentBookAdapter(private var dataSet: List<RentBookRecycler>, private val activity: Activity) :
+open class RentBookAdapter(private val activity: Activity) :
     RecyclerView.Adapter<RentBookAdapter.ViewHolder>() {
+        private var dataSet = listOf<RentBookRecycler>()
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val bookImage: ImageView = view.findViewById(R.id.bookImage)
@@ -28,6 +29,14 @@ open class RentBookAdapter(private var dataSet: List<RentBookRecycler>, private 
 
         val textRentTime: TextView = view.findViewById(R.id.textRentTime)
         val returnButton: Button = view.findViewById(R.id.returnButton)
+    }
+
+    fun setElements(list: List<RentBookRecycler>){
+        if(itemCount > 0)
+            notifyItemRangeRemoved(0, itemCount)
+
+        dataSet = list
+        notifyItemRangeInserted(0, itemCount)
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
